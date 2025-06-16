@@ -10,7 +10,7 @@ bucket = custombucket
 region = customregion
 
 db_conn = connections.Connection(
-    host=customhost,
+    host=employee.cl8g44imolhb.us-east-1.rds.amazonaws.com,
     port=3306,
     user=customuser,
     password=custompass,
@@ -58,7 +58,7 @@ def AddEmp():
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
-            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=add1employee12)
             s3_location = (bucket_location['LocationConstraint'])
 
             if s3_location is None:
